@@ -1,0 +1,7 @@
+- status keluarga per no. bangunan
+SELECT ([kode_prov] + [kode_kab] + [kode_kec] + [kode_desa] + [kode_sls] + [kode_subsls]) as [idsls] ,[r204_nama] ,[r202_nama] ,[sls_nama] ,[r109] AS [no_bgn], 
+(CASE WHEN [r111] = 1 THEN count(*) end as [1]), 
+(CASE WHEN [r111] = 2 THEN count(*) end as [2]),
+(CASE WHEN [r111] = 3 THEN count(*) end as [3])
+FROM tab_view_k
+group by ([kode_prov] + [kode_kab] + [kode_kec] + [kode_desa] + [kode_sls] + [kode_subsls]),[r204_nama],[r202_nama],[sls_nama],[r109]
